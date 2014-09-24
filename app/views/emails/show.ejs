@@ -1,0 +1,40 @@
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li><a href="<%- pathTo.emails %>">emails</a> <span class="divider">/</span></li>
+    <li class="active"><a href="#">Details of email</a></li>
+</ul>
+
+<div class="page-header">
+    <h1>Details of email</h1>
+</div>
+
+<table class="table table-bordered">
+    <tbody>
+        <tr><th>id</th><td><%= email.id %></td></tr>
+
+        <tr><th>name</th><td><%= email.name %></td></tr>
+
+        <tr><th>email</th><td><%= email.email %></td></tr>
+
+        <tr><th>web</th><td><%= email.web %></td></tr>
+
+        <tr><th>zip</th><td><%= email.zip %></td></tr>
+
+        <tr><th>status_id</th><td><%= email.status_id %></td></tr>
+
+        <tr><th>is_valid</th><td><%= email.is_valid %></td></tr>
+
+        <tr><th>division</th><td><%= email.division %></td></tr>
+
+        <tr><th>is_sent</th><td><%= email.is_sent %></td></tr>
+
+        <tr><th>category_id</th><td><%= email.category_id %></td></tr>
+    </tbody>
+</table>
+
+<div class="well">
+    <%- link_to('<i class="icon-edit icon-white"></i> Edit', pathTo.edit_email(email), {class: 'btn btn-primary'}) %>
+    <%- link_to('<i class="icon-remove icon-white"></i> Delete', pathTo.email(email), {class: 'btn btn-danger', method: 'delete', remote: true, jsonp: '(function (u) { location.href = u; })'}) %>
+    or
+    <%- link_to('Back to index', pathTo.emails) %>
+</div>

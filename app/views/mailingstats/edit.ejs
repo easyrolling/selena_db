@@ -1,0 +1,18 @@
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li><a href="<%- pathTo.mailingstats() %>">mailingstats</a> <span class="divider">/</span></li>
+    <li class="active"><a href="#">Edit mailingstat</a></li>
+</ul>
+
+<div class="page-header">
+    <h1>Edit mailingstat</h1>
+</div>
+
+<% var form = formFor(mailingstat, {action: pathTo.mailingstat(mailingstat), method: 'PUT', id: "mailingstat-form", class: 'form-horizontal'}) %>
+<%- form.begin() %>
+<%- include _form %>
+<div class="form-actions">
+    <%- form.submit('<i class="icon-ok icon-white"></i> Update mailingstat', {class: 'btn btn-primary'}) %> or
+    <%- linkTo('Cancel', pathTo.mailingstat(mailingstat), {class: 'btn'}) %>
+</div>
+<%- form.end() %>

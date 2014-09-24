@@ -1,0 +1,59 @@
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li class="active"><a href="<%- pathTo.mailings() %>">mailings</a> <span class="divider">/</span></li>
+</ul>
+
+<div class="page-header">
+    <h1>Index of mailing</h1>
+</div>
+
+<div class="row">
+    <div class="span12">
+        <p><%- link_to('<i class="icon-plus icon-white"></i> New mailing', pathTo.new_mailing(), {class: 'btn btn-primary'}) %></>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span12">
+        <% if (mailings.length > 0) { %>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    	<th>ID</th>
+			<th>From</th>
+			<th>Subject</th>
+			<th>Promotion</th>
+			<th>Count</th>
+			<th>Engaged</th>
+			<th>Viewed</th>
+			<th>Unsubscribed</th>
+			<th>Bounced</th>
+			<th>Division</th>
+			<th>Sent</th>                </tr>
+            </thead>
+            <tbody>
+                <% mailings.forEach(function (mailing) { %>
+                <tr>
+                    <td><strong><%- link_to(mailing.id, pathTo.mailing(mailing)) %></strong></td>
+			<td><%- mailing.from %></td>
+			<td><%- mailing.subject %></td>
+			<td><%- mailing.promotion_id %></td>
+			<td><%- mailing.count %></td>
+			<td><%- mailing.engaged %></td>
+			<td><%- mailing.viewed %></td>
+			<td><%- mailing.unsubscribed %></td>
+			<td><%- mailing.bounced %></td>
+			<td><%- mailing.division %></td>
+			<td><%- mailing.finished_send %></td>
+
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <% } else { %>
+        <p class="alert alert-block alert-info">
+            <strong>No mailings were found.</strong>
+        </p>
+        <% } %>
+    </div>
+</div>

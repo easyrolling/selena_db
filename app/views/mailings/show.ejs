@@ -1,0 +1,44 @@
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li><a href="<%- pathTo.mailings %>">mailings</a> <span class="divider">/</span></li>
+    <li class="active"><a href="#">Details of mailing</a></li>
+</ul>
+
+<div class="page-header">
+    <h1>Details of mailing</h1>
+</div>
+
+<table class="table table-bordered">
+    <tbody>
+        <tr><th>id</th><td><%= mailing.id %></td></tr>
+
+        <tr><th>from</th><td><%= mailing.from %></td></tr>
+
+        <tr><th>subject</th><td><%= mailing.subject %></td></tr>
+
+        <tr><th>started_send</th><td><%= mailing.started_send %></td></tr>
+
+        <tr><th>finished_send</th><td><%= mailing.finished_send %></td></tr>
+
+        <tr><th>promotion_id</th><td><%= mailing.promotion_id %></td></tr>
+
+        <tr><th>count</th><td><%= mailing.count %></td></tr>
+
+        <tr><th>engaged</th><td><%= mailing.engaged %></td></tr>
+
+        <tr><th>viewed</th><td><%= mailing.viewed %></td></tr>
+
+        <tr><th>unsubscribed</th><td><%= mailing.unsubscribed %></td></tr>
+
+        <tr><th>bounced</th><td><%= mailing.bounced %></td></tr>
+
+        <tr><th>division</th><td><%= mailing.division %></td></tr>
+    </tbody>
+</table>
+
+<div class="well">
+    <%- link_to('<i class="icon-edit icon-white"></i> Edit', pathTo.edit_mailing(mailing), {class: 'btn btn-primary'}) %>
+    <%- link_to('<i class="icon-remove icon-white"></i> Delete', pathTo.mailing(mailing), {class: 'btn btn-danger', method: 'delete', remote: true, jsonp: '(function (u) { location.href = u; })'}) %>
+    or
+    <%- link_to('Back to index', pathTo.mailings) %>
+</div>
